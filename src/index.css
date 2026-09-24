@@ -15,8 +15,8 @@ html, body {
   width: 100%;
   overflow: hidden;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: #09090b;
-  color: #f4f4f5;
+  background-color: #f8fafc;
+  color: #0f172a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -30,21 +30,25 @@ html, body {
   overflow: hidden;
 }
 
-/* Custom dark scrollbars */
-.scrollbar-custom-dark::-webkit-scrollbar {
+/* Custom modern scrollbars */
+.scrollbar-custom-dark::-webkit-scrollbar,
+.scrollbar-custom-light::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
-.scrollbar-custom-dark::-webkit-scrollbar-track {
-  background: rgba(24, 24, 27, 0.6);
+.scrollbar-custom-dark::-webkit-scrollbar-track,
+.scrollbar-custom-light::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.8);
 }
 
-.scrollbar-custom-dark::-webkit-scrollbar-thumb {
-  background: rgba(63, 63, 70, 0.6);
+.scrollbar-custom-dark::-webkit-scrollbar-thumb,
+.scrollbar-custom-light::-webkit-scrollbar-thumb {
+  background: rgba(203, 213, 225, 0.9);
   border-radius: 9999px;
 }
 
-.scrollbar-custom-dark::-webkit-scrollbar-thumb:hover {
-  background: rgba(113, 113, 122, 0.8);
+.scrollbar-custom-dark::-webkit-scrollbar-thumb:hover,
+.scrollbar-custom-light::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 1);
 }

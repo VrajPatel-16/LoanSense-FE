@@ -178,22 +178,22 @@ export default function VoiceToTextConverter() {
     };
 
     return (
-        <div className="flex-1 flex flex-col h-full overflow-y-auto bg-zinc-950 p-6 space-y-6 scrollbar-custom-dark">
+        <div className="flex-1 flex flex-col h-full overflow-y-auto bg-slate-50 p-6 space-y-6 scrollbar-custom-light font-sans">
             {/* Header Title */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-zinc-800 pb-5">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 pb-5 bg-white p-5 rounded-xl border shadow-xs">
                 <div>
                     <div className="flex items-center gap-2.5">
-                        <div className="p-2 rounded-lg bg-purple-500/10 border border-purple-500/30">
-                            <Sparkles className="h-5 w-5 text-purple-400" />
+                        <div className="p-2 rounded-lg bg-purple-50 border border-purple-200">
+                            <Sparkles className="h-5 w-5 text-purple-600" />
                         </div>
-                        <h1 className="text-xl font-bold text-zinc-100 tracking-tight">
+                        <h1 className="text-xl font-bold text-slate-900 tracking-tight">
                             Voice-to-Text & Data Converter
                         </h1>
-                        <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                        <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-50 text-purple-700 border border-purple-200">
                             AI Speech Pipeline
                         </span>
                     </div>
-                    <p className="text-xs text-zinc-400 mt-1">
+                    <p className="text-xs text-slate-500 mt-1">
                         Submit a call recording URL or select a sample recording to transcribe audio and extract data insights automatically.
                     </p>
                 </div>
@@ -203,29 +203,29 @@ export default function VoiceToTextConverter() {
                         type="button"
                         onClick={handleExportExcel}
                         disabled={exportingExcel}
-                        className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-bold shadow-lg shadow-purple-500/20 transition-all flex items-center gap-2 disabled:opacity-50"
+                        className="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-xs transition-all flex items-center gap-2 disabled:opacity-50"
                     >
-                        <FileSpreadsheet className={`h-4 w-4 ${exportingExcel ? "animate-bounce text-amber-300" : "text-purple-200"}`} />
+                        <FileSpreadsheet className={`h-4 w-4 ${exportingExcel ? "animate-bounce text-amber-200" : "text-white"}`} />
                         {exportingExcel ? "Generating Excel Report..." : "Run Bulk Analysis & Export Excel"}
                     </button>
                 </div>
             </div>
 
             {/* Input Submission Card */}
-            <div className="p-5 rounded-xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-md space-y-4">
+            <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-xs space-y-4">
                 <form onSubmit={handleAnalyze} className="space-y-4">
                     {/* Database Recording Selection Dropdown */}
-                    <div className="space-y-3 p-3.5 rounded-lg bg-zinc-950/80 border border-emerald-500/30">
+                    <div className="space-y-3 p-3.5 rounded-lg bg-slate-50 border border-emerald-200">
                         <div className="flex items-center justify-between">
-                            <label className="text-xs font-semibold text-emerald-300 flex items-center gap-2">
-                                <Database className="h-3.5 w-3.5 text-emerald-400" />
+                            <label className="text-xs font-semibold text-emerald-800 flex items-center gap-2">
+                                <Database className="h-3.5 w-3.5 text-emerald-600" />
                                 Choose Call Recording from Database (Live Feed)
                             </label>
                             <button
                                 type="button"
                                 onClick={fetchLiveRecordings}
                                 disabled={loadingLive}
-                                className="text-[10px] text-zinc-400 hover:text-emerald-300 flex items-center gap-1 font-medium transition-all"
+                                className="text-[10px] text-slate-500 hover:text-emerald-700 flex items-center gap-1 font-medium transition-all"
                             >
                                 <RefreshCw className={`h-3 w-3 ${loadingLive ? "animate-spin" : ""}`} />
                                 {loadingLive ? "Loading DB List..." : "Reload DB List"}
@@ -240,7 +240,7 @@ export default function VoiceToTextConverter() {
                                     setSelectedLiveRecordingId(val);
                                     if (val) setAudioUrl(val);
                                 }}
-                                className="flex-1 min-w-0 bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2 text-xs text-zinc-100 focus:outline-none focus:border-emerald-500 transition-all font-mono truncate"
+                                className="flex-1 min-w-0 bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-800 focus:outline-none focus:border-indigo-500 transition-all font-mono truncate shadow-xs"
                             >
                                 <option value="">-- Select a Call Recording from Database --</option>
                                 {liveRecordings.map((rec, i) => (
@@ -251,21 +251,21 @@ export default function VoiceToTextConverter() {
                             </select>
 
                             {audioUrl && (
-                                <div className="flex items-center gap-2 flex-shrink-0 bg-zinc-900 p-1 rounded-lg border border-zinc-800">
-                                    <span className="text-[10px] text-emerald-400 font-semibold px-2 flex items-center gap-1">
-                                        <Volume2 className="h-3.5 w-3.5 text-emerald-400" />
+                                <div className="flex items-center gap-2 flex-shrink-0 bg-white p-1 rounded-lg border border-slate-200 shadow-xs">
+                                    <span className="text-[10px] text-emerald-700 font-semibold px-2 flex items-center gap-1">
+                                        <Volume2 className="h-3.5 w-3.5 text-emerald-600" />
                                         Play Selected Audio:
                                     </span>
                                     <audio 
                                         src={audioUrl} 
                                         controls 
-                                        className="h-7 w-60 rounded bg-zinc-950 text-xs"
+                                        className="h-7 w-60 rounded text-xs"
                                     />
                                     <a
                                         href={audioUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="p-1.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-emerald-300 text-xs transition-all"
+                                        className="p-1.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs transition-all"
                                         title="Open Audio URL in New Tab"
                                     >
                                         <ArrowUpRight className="h-3.5 w-3.5" />
@@ -278,8 +278,8 @@ export default function VoiceToTextConverter() {
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                         {/* Audio URL Input */}
                         <div className="lg:col-span-2 space-y-1.5">
-                            <label className="text-xs font-semibold text-zinc-300 flex items-center gap-2">
-                                <Link className="h-3.5 w-3.5 text-cyan-400" />
+                            <label className="text-xs font-semibold text-slate-700 flex items-center gap-2">
+                                <Link className="h-3.5 w-3.5 text-indigo-600" />
                                 Call Recording Audio URL
                             </label>
                             <div className="relative">
@@ -289,21 +289,21 @@ export default function VoiceToTextConverter() {
                                     value={audioUrl}
                                     onChange={(e) => setAudioUrl(e.target.value)}
                                     placeholder="https://domain.com/recordings/call_recording.mp3"
-                                    className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-xs text-zinc-200 focus:outline-none focus:border-purple-500 transition-all font-mono"
+                                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-indigo-500 transition-all font-mono"
                                 />
                             </div>
                         </div>
 
                         {/* Call Category Selector */}
                         <div className="space-y-1.5">
-                            <label className="text-xs font-semibold text-zinc-300 flex items-center gap-2">
-                                <FileText className="h-3.5 w-3.5 text-purple-400" />
+                            <label className="text-xs font-semibold text-slate-700 flex items-center gap-2">
+                                <FileText className="h-3.5 w-3.5 text-purple-600" />
                                 Call Activity Stream
                             </label>
                             <select
                                 value={callCategory}
                                 onChange={(e) => setCallCategory(e.target.value)}
-                                className="w-full bg-zinc-950 border border-zinc-800 rounded-lg px-3.5 py-2.5 text-xs text-zinc-200 focus:outline-none focus:border-purple-500 transition-all"
+                                className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3.5 py-2.5 text-xs text-slate-800 focus:outline-none focus:border-indigo-500 transition-all"
                             >
                                 <option value="Collection-related calls">Collection-related calls</option>
                                 <option value="Cross-selling / Up-Sell / Sales calls">Cross-selling / Up-Sell / Sales calls</option>
@@ -315,13 +315,13 @@ export default function VoiceToTextConverter() {
                     {/* Quick Preset Samples & Action Button */}
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
                         <div className="flex items-center gap-2 flex-wrap">
-                            <span className="text-[11px] font-medium text-zinc-400">Try Quick Sample:</span>
+                            <span className="text-[11px] font-medium text-slate-500">Try Quick Sample:</span>
                             {sampleAudioUrls.map((sample, idx) => (
                                 <button
                                     key={idx}
                                     type="button"
                                     onClick={() => loadSample(sample)}
-                                    className="text-[11px] px-2.5 py-1 rounded bg-zinc-950 hover:bg-zinc-800 text-purple-300 border border-purple-500/30 transition-all font-mono"
+                                    className="text-[11px] px-2.5 py-1 rounded bg-slate-100 hover:bg-slate-200 text-indigo-700 border border-slate-200 transition-all font-mono font-medium"
                                 >
                                     {sample.label}
                                 </button>
@@ -331,16 +331,16 @@ export default function VoiceToTextConverter() {
                         <button
                             type="submit"
                             disabled={isAnalyzing || !audioUrl}
-                            className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 disabled:opacity-50 text-white text-xs font-bold shadow-lg shadow-purple-500/20 transition-all flex items-center justify-center gap-2"
+                            className="px-5 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white text-xs font-bold shadow-xs transition-all flex items-center justify-center gap-2"
                         >
                             {isAnalyzing ? (
                                 <>
-                                    <Loader2 className="h-4 w-4 animate-spin text-purple-200" />
+                                    <Loader2 className="h-4 w-4 animate-spin text-white" />
                                     Analyzing Audio Stream...
                                 </>
                             ) : (
                                 <>
-                                    <Sparkles className="h-4 w-4 text-purple-200" />
+                                    <Sparkles className="h-4 w-4 text-white" />
                                     Analyze & Convert Voice-to-Text
                                 </>
                             )}
@@ -351,51 +351,51 @@ export default function VoiceToTextConverter() {
 
             {/* Analysis Loading State */}
             {isAnalyzing && (
-                <div className="p-8 rounded-xl bg-zinc-900/40 border border-purple-500/30 flex flex-col items-center justify-center space-y-4 text-center">
+                <div className="p-8 rounded-xl bg-white border border-indigo-200 shadow-xs flex flex-col items-center justify-center space-y-4 text-center">
                     <div className="relative flex items-center justify-center">
-                        <div className="h-14 w-14 rounded-full border-2 border-purple-500/20 border-t-purple-500 animate-spin" />
-                        <Cpu className="h-6 w-6 text-purple-400 absolute" />
+                        <div className="h-14 w-14 rounded-full border-2 border-indigo-200 border-t-indigo-600 animate-spin" />
+                        <Cpu className="h-6 w-6 text-indigo-600 absolute" />
                     </div>
                     <div>
-                        <h3 className="text-sm font-bold text-zinc-100">Voice Recognition Pipeline Active</h3>
-                        <p className="text-xs text-zinc-400 mt-1">Downloading audio stream → Speech-to-Text → Extracting Data Insights...</p>
+                        <h3 className="text-sm font-bold text-slate-900">Voice Recognition Pipeline Active</h3>
+                        <p className="text-xs text-slate-500 mt-1">Downloading audio stream → Speech-to-Text → Extracting Data Insights...</p>
                     </div>
                 </div>
             )}
 
             {/* Voice-to-Text Output Results */}
             {hasAnalyzed && !isAnalyzing && (
-                <div className="space-y-6 animate-in fade-in duration-300">
+                <div className="space-y-6 animate-in fade-in duration-200">
                     {/* Audio Player & Overview */}
-                    <div className="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4">
                         <div className="flex items-center gap-3">
                             <button
                                 onClick={() => setIsPlaying(!isPlaying)}
-                                className="h-10 w-10 rounded-full bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-300 hover:scale-105 transition-all"
+                                className="h-10 w-10 rounded-full bg-indigo-50 border border-indigo-200 flex items-center justify-center text-indigo-600 hover:scale-105 transition-all shadow-xs"
                             >
                                 {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5 ml-0.5" />}
                             </button>
                             <div>
-                                <h4 className="text-xs font-semibold text-zinc-200">
+                                <h4 className="text-xs font-semibold text-slate-800">
                                     Call Recording Stream #89492
                                 </h4>
-                                <p className="text-[11px] text-zinc-400 font-mono truncate max-w-md">
+                                <p className="text-[11px] text-slate-500 font-mono truncate max-w-md">
                                     {audioUrl}
                                 </p>
                             </div>
                         </div>
 
                         <div className="flex items-center gap-3">
-                            <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded border border-emerald-500/30 flex items-center gap-1.5">
+                            <span className="text-xs font-mono text-emerald-700 bg-emerald-50 px-3 py-1 rounded border border-emerald-200 flex items-center gap-1.5 font-semibold">
                                 <CheckCircle2 className="h-3.5 w-3.5" />
                                 99.4% Speech Accuracy
                             </span>
 
                             <button
                                 onClick={copyTranscript}
-                                className="px-3 py-1.5 rounded-lg bg-zinc-950 hover:bg-zinc-800 text-xs text-zinc-300 border border-zinc-800 flex items-center gap-1.5 transition-all"
+                                className="px-3 py-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 text-xs text-slate-700 border border-slate-200 flex items-center gap-1.5 transition-all shadow-xs"
                             >
-                                {copiedTranscript ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5 text-zinc-400" />}
+                                {copiedTranscript ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5 text-slate-400" />}
                                 {copiedTranscript ? "Copied" : "Copy Transcript"}
                             </button>
                         </div>
@@ -404,50 +404,50 @@ export default function VoiceToTextConverter() {
                     {/* Main Results Grid */}
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         {/* Speaker-Diarized Voice-to-Text Transcript */}
-                        <div className="lg:col-span-2 p-5 rounded-xl bg-zinc-900/60 border border-zinc-800 space-y-4">
-                            <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
+                        <div className="lg:col-span-2 p-5 rounded-xl bg-white border border-slate-200 shadow-xs space-y-4">
+                            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
                                 <div className="flex items-center gap-2">
-                                    <MessageSquare className="h-4 w-4 text-cyan-400" />
-                                    <h3 className="text-sm font-semibold text-zinc-100">
+                                    <MessageSquare className="h-4 w-4 text-indigo-600" />
+                                    <h3 className="text-sm font-semibold text-slate-900">
                                         Voice-to-Text Conversation Transcript
                                     </h3>
                                 </div>
-                                <span className="text-[11px] text-zinc-400 font-mono">Diarization Active (2 Speakers)</span>
+                                <span className="text-[11px] text-slate-500 font-mono">Diarization Active (2 Speakers)</span>
                             </div>
 
                             {gemmaTranscript && (
-                                <div className="p-4 rounded-xl bg-purple-950/40 border border-purple-500/40 space-y-2 mb-4">
-                                    <div className="flex items-center gap-2 text-xs font-bold text-purple-300 uppercase tracking-wider">
-                                        <Sparkles className="h-4 w-4 text-purple-400" />
+                                <div className="p-4 rounded-xl bg-purple-50 border border-purple-200 space-y-2 mb-4">
+                                    <div className="flex items-center gap-2 text-xs font-bold text-purple-800 uppercase tracking-wider">
+                                        <Sparkles className="h-4 w-4 text-purple-600" />
                                         Gemma LLM Gateway Voice-to-Text Output
                                     </div>
-                                    <div className="p-3 rounded-lg bg-zinc-950/80 border border-zinc-800 text-xs text-zinc-100 font-mono leading-relaxed whitespace-pre-wrap">
+                                    <div className="p-3 rounded-lg bg-white border border-purple-200 text-xs text-slate-800 font-mono leading-relaxed whitespace-pre-wrap">
                                         {gemmaTranscript}
                                     </div>
                                 </div>
                             )}
 
                             {/* Transcript Dialogue Stream */}
-                            <div className="space-y-3 max-h-[420px] overflow-y-auto pr-2 scrollbar-custom-dark text-xs">
+                            <div className="space-y-3 max-h-[420px] overflow-y-auto pr-2 scrollbar-custom-light text-xs">
                                 {structuredTurns && structuredTurns.length > 0 ? (
                                     structuredTurns.map((turn, idx) => {
                                         const isAgent = turn.speaker === "Agent";
                                         return (
                                             <div 
                                                 key={idx} 
-                                                className={`p-3 rounded-lg border border-zinc-800/80 space-y-1 ${
-                                                    isAgent ? "bg-zinc-950" : "bg-zinc-900/90 ml-4"
+                                                className={`p-3.5 rounded-lg border border-slate-200 space-y-1 ${
+                                                    isAgent ? "bg-slate-50" : "bg-indigo-50/50 border-indigo-100 ml-4"
                                                 }`}
                                             >
                                                 <div className={`flex items-center justify-between text-[11px] font-semibold ${
-                                                    isAgent ? "text-purple-400" : "text-cyan-400"
+                                                    isAgent ? "text-slate-700" : "text-indigo-700"
                                                 }`}>
                                                     <span className="flex items-center gap-1.5">
                                                         <User className="h-3 w-3" /> {turn.speaker_label || (isAgent ? "Agent Ramesh Sharma (AG-104)" : "Customer (Cust #49201)")}
                                                     </span>
-                                                    <span className="text-zinc-500 font-mono">{turn.timestamp || "00:00"}</span>
+                                                    <span className="text-slate-400 font-mono">{turn.timestamp || "00:00"}</span>
                                                 </div>
-                                                <p className="text-zinc-200 leading-relaxed">
+                                                <p className="text-slate-700 leading-relaxed">
                                                     "{turn.text}"
                                                 </p>
                                             </div>
@@ -455,26 +455,26 @@ export default function VoiceToTextConverter() {
                                     })
                                 ) : (
                                     <>
-                                        <div className="p-3 rounded-lg bg-zinc-950 border border-zinc-800/80 space-y-1">
-                                            <div className="flex items-center justify-between text-[11px] font-semibold text-purple-400">
+                                        <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200 space-y-1">
+                                            <div className="flex items-center justify-between text-[11px] font-semibold text-slate-700">
                                                 <span className="flex items-center gap-1.5">
                                                     <User className="h-3 w-3" /> Agent Ramesh Sharma (AG-104)
                                                 </span>
-                                                <span className="text-zinc-500 font-mono">00:02</span>
+                                                <span className="text-slate-400 font-mono">00:02</span>
                                             </div>
-                                            <p className="text-zinc-200 leading-relaxed">
+                                            <p className="text-slate-700 leading-relaxed">
                                                 "Namaste Mr. Amit Verma. Main Sonata Microfinance se Ramesh bol raha hoon. Aapke account mein is mahine ki EMI ₹8,500 overdue chal rahi hai."
                                             </p>
                                         </div>
 
-                                        <div className="p-3 rounded-lg bg-zinc-900/90 border border-zinc-800/80 space-y-1 ml-4">
-                                            <div className="flex items-center justify-between text-[11px] font-semibold text-cyan-400">
+                                        <div className="p-3.5 rounded-lg bg-indigo-50/50 border border-indigo-100 space-y-1 ml-4">
+                                            <div className="flex items-center justify-between text-[11px] font-semibold text-indigo-700">
                                                 <span className="flex items-center gap-1.5">
                                                     <User className="h-3 w-3" /> Customer Amit Verma (Cust #49201)
                                                 </span>
-                                                <span className="text-zinc-500 font-mono">00:15</span>
+                                                <span className="text-slate-400 font-mono">00:15</span>
                                             </div>
-                                            <p className="text-zinc-200 leading-relaxed">
+                                            <p className="text-slate-700 leading-relaxed">
                                                 "Haan ji Ramesh ji, mujhe maloom hai. Fasal ki bikri mandi mein kal dopahar ko hui hai. Paise mil gaye hain."
                                             </p>
                                         </div>
@@ -484,48 +484,48 @@ export default function VoiceToTextConverter() {
                         </div>
 
                         {/* Extracted Insights */}
-                        <div className="p-5 rounded-xl bg-zinc-900/60 border border-zinc-800 space-y-4">
-                            <div className="flex items-center gap-2 border-b border-zinc-800 pb-3">
-                                <Sparkles className="h-4 w-4 text-purple-400" />
-                                <h3 className="text-sm font-semibold text-zinc-100">
+                        <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-xs space-y-4">
+                            <div className="flex items-center gap-2 border-b border-slate-200 pb-3">
+                                <Sparkles className="h-4 w-4 text-purple-600" />
+                                <h3 className="text-sm font-semibold text-slate-900">
                                     AI Extracted Data Insights
                                 </h3>
                             </div>
 
                             <div className="space-y-3">
-                                <div className="p-3 rounded-lg bg-zinc-950 border border-zinc-800">
-                                    <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">
+                                <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200">
+                                    <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block mb-1">
                                         Payment Promise Commitment (PTP)
                                     </span>
-                                    <p className="text-sm font-bold text-zinc-100 flex items-center justify-between">
+                                    <p className="text-sm font-bold text-slate-900 flex items-center justify-between">
                                         <span>{aiInsights?.payment_commitment || "₹8,500 Cash"}</span>
-                                        <span className="text-xs text-emerald-400 font-normal">{aiInsights?.commitment_date || "25-Aug-2026"}</span>
+                                        <span className="text-xs text-emerald-700 font-medium">{aiInsights?.commitment_date || "25-Aug-2026"}</span>
                                     </p>
                                 </div>
 
-                                <div className="p-3 rounded-lg bg-zinc-950 border border-zinc-800">
-                                    <span className="text-[10px] font-bold text-blue-400 uppercase tracking-wider block mb-1">
+                                <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200">
+                                    <span className="text-[10px] font-bold text-blue-700 uppercase tracking-wider block mb-1">
                                         Call Activity Categorization
                                     </span>
-                                    <p className="text-xs font-semibold text-zinc-200">
+                                    <p className="text-xs font-semibold text-slate-800">
                                         {aiInsights?.call_category || "Collection-related Overdue Recovery"}
                                     </p>
                                 </div>
 
-                                <div className="p-3 rounded-lg bg-zinc-950 border border-zinc-800">
-                                    <span className="text-[10px] font-bold text-purple-400 uppercase tracking-wider block mb-1">
+                                <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200">
+                                    <span className="text-[10px] font-bold text-purple-700 uppercase tracking-wider block mb-1">
                                         Customer Sentiment & Intent
                                     </span>
-                                    <div className="flex items-center justify-between text-xs font-semibold text-zinc-200">
-                                        <span className="text-emerald-400">{aiInsights?.sentiment || "Positive / Cooperative"}</span>
+                                    <div className="flex items-center justify-between text-xs font-semibold text-slate-800">
+                                        <span className="text-emerald-700">{aiInsights?.sentiment || "Positive / Cooperative"}</span>
                                     </div>
                                 </div>
 
-                                <div className="p-3 rounded-lg bg-zinc-950 border border-zinc-800">
-                                    <span className="text-[10px] font-bold text-cyan-400 uppercase tracking-wider block mb-1">
+                                <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200">
+                                    <span className="text-[10px] font-bold text-indigo-700 uppercase tracking-wider block mb-1">
                                         Compliance Protocol Check
                                     </span>
-                                    <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-400">
+                                    <div className="flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
                                         <ShieldCheck className="h-4 w-4" />
                                         100% Agent Protocol Compliant
                                     </div>
@@ -536,43 +536,43 @@ export default function VoiceToTextConverter() {
 
                     {/* Sonata Microfinance English Summary Card */}
                     {englishSummaryData && (
-                        <div className="p-5 rounded-xl bg-gradient-to-r from-zinc-900 via-purple-950/30 to-zinc-900 border border-purple-500/40 shadow-xl space-y-4 animate-in fade-in duration-300">
-                            <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
+                        <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-xs space-y-4 animate-in fade-in duration-200">
+                            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
                                 <div className="flex items-center gap-2.5">
-                                    <div className="p-2 rounded-lg bg-purple-500/20 text-purple-300 border border-purple-500/40">
-                                        <Sparkles className="h-4 w-4 text-purple-400" />
+                                    <div className="p-2 rounded-lg bg-purple-50 text-purple-700 border border-purple-200">
+                                        <Sparkles className="h-4 w-4 text-purple-600" />
                                     </div>
                                     <div>
-                                        <h3 className="text-sm font-bold text-zinc-100">
+                                        <h3 className="text-sm font-bold text-slate-900">
                                             Sonata Microfinance Collection Call Summary (English)
                                         </h3>
-                                        <p className="text-[11px] text-zinc-400">Generated by Gemma LLM Summary Service</p>
+                                        <p className="text-[11px] text-slate-500">Generated by Gemma LLM Summary Service</p>
                                     </div>
                                 </div>
-                                <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded border border-emerald-500/30">
+                                <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded border border-emerald-200">
                                     {englishSummaryData.collection_outcome || "Promise to Pay (PTP)"}
                                 </span>
                             </div>
 
-                            <div className="text-xs text-zinc-200 leading-relaxed font-sans bg-zinc-950/80 p-4 rounded-lg border border-zinc-800/80 whitespace-pre-wrap">
+                            <div className="text-xs text-slate-700 leading-relaxed font-sans bg-slate-50 p-4 rounded-lg border border-slate-200 whitespace-pre-wrap">
                                 {englishSummaryData.english_summary}
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
-                                <div className="p-3 rounded-lg bg-zinc-950/80 border border-amber-500/30">
-                                    <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider block mb-1">
+                                <div className="p-3.5 rounded-lg bg-amber-50/60 border border-amber-200">
+                                    <span className="text-[10px] font-bold text-amber-800 uppercase tracking-wider block mb-1">
                                         Customer Situation Assessment
                                     </span>
-                                    <p className="text-xs text-zinc-200">
+                                    <p className="text-xs text-slate-800">
                                         {englishSummaryData.customer_situation || "Customer acknowledged overdue EMI and agreed to deposit payment."}
                                     </p>
                                 </div>
 
-                                <div className="p-3 rounded-lg bg-zinc-950/80 border border-emerald-500/30">
-                                    <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">
+                                <div className="p-3.5 rounded-lg bg-emerald-50/60 border border-emerald-200">
+                                    <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-wider block mb-1">
                                         Action Plan for BRO / Branch Manager
                                     </span>
-                                    <p className="text-xs text-zinc-200">
+                                    <p className="text-xs text-slate-800">
                                         {englishSummaryData.recommended_bro_action || "Follow up on promised PTP date for EMI collection deposit."}
                                     </p>
                                 </div>

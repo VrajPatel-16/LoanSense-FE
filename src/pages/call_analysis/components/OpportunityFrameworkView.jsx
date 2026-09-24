@@ -13,7 +13,7 @@ export default function OpportunityFrameworkView() {
             title: "Call Centre Recordings",
             icon: PhoneCall,
             badge: "Active",
-            badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/40",
+            badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
             activities: [
                 { name: "Collection-related calls", period: "Last 30 days", method: "Voice-to-Data conversion" },
                 { name: "Cross-selling / Up-Sell / Sales calls", period: "Last 30 days", method: "Voice-to-Data conversion" },
@@ -25,7 +25,7 @@ export default function OpportunityFrameworkView() {
             title: "WhatsApp Messages",
             icon: MessageSquare,
             badge: "Planned (Next Phase)",
-            badgeColor: "bg-amber-500/20 text-amber-300 border-amber-500/40",
+            badgeColor: "bg-amber-50 text-amber-700 border-amber-200",
             activities: [
                 { name: "Collection reminder messages and customer replies", period: "Last 6 months", method: "Text-to-Data conversion + AI analysis" },
             ]
@@ -35,7 +35,7 @@ export default function OpportunityFrameworkView() {
             title: "AI Calls",
             icon: Sparkles,
             badge: "Planned (Next Phase)",
-            badgeColor: "bg-purple-500/20 text-purple-300 border-purple-500/40",
+            badgeColor: "bg-purple-50 text-purple-700 border-purple-200",
             activities: [
                 { name: "AI-based collection calls and customer responses", period: "Last 30 days", method: "Voice-to-Data conversion + AI analysis" },
             ]
@@ -45,7 +45,7 @@ export default function OpportunityFrameworkView() {
             title: "Pre-Approved Loans",
             icon: Gift,
             badge: "Planned (Next Phase)",
-            badgeColor: "bg-blue-500/20 text-blue-300 border-blue-500/40",
+            badgeColor: "bg-blue-50 text-blue-700 border-blue-200",
             activities: [
                 { name: "Calls and WhatsApp messages related to pre-approved loans", period: "Last 30 days", method: "Voice-to-Data / Text-to-Data conversion + AI analysis" },
             ]
@@ -58,37 +58,37 @@ export default function OpportunityFrameworkView() {
             parameter: "Customer Interest",
             description: "Whether the customer has shown interest in taking a loan or any available offer",
             icon: Target,
-            color: "from-cyan-500/20 to-blue-500/10 border-cyan-500/30 text-cyan-300"
+            color: "from-blue-50 to-indigo-50 border-blue-200 text-blue-700"
         },
         {
             parameter: "Referral Interest",
             description: "Whether the customer has indicated that they may refer another person",
             icon: UserCheck,
-            color: "from-purple-500/20 to-indigo-500/10 border-purple-500/30 text-purple-300"
+            color: "from-purple-50 to-indigo-50 border-purple-200 text-purple-700"
         },
         {
             parameter: "New Loan Requirement",
             description: "Whether the customer wants a new loan",
             icon: DollarSign,
-            color: "from-emerald-500/20 to-teal-500/10 border-emerald-500/30 text-emerald-300"
+            color: "from-emerald-50 to-teal-50 border-emerald-200 text-emerald-700"
         },
         {
             parameter: "Loan Enhancement Requirement",
             description: "Whether the customer wants to increase the loan amount of an existing loan",
             icon: TrendingUp,
-            color: "from-amber-500/20 to-orange-500/10 border-amber-500/30 text-amber-300"
+            color: "from-amber-50 to-orange-50 border-amber-200 text-amber-700"
         },
         {
             parameter: "Offer Requirement",
             description: "Whether the customer has expressed interest in a specific offer, product, amount, tenure, etc.",
             icon: Gift,
-            color: "from-pink-500/20 to-rose-500/10 border-pink-500/30 text-pink-300"
+            color: "from-pink-50 to-rose-50 border-pink-200 text-pink-700"
         },
         {
             parameter: "Customer Intent / Priority",
             description: "Strength of customer's intent based on conversation/message",
             icon: Zap,
-            color: "from-violet-500/20 to-purple-500/10 border-violet-500/30 text-violet-300"
+            color: "from-indigo-50 to-violet-50 border-indigo-200 text-indigo-700"
         }
     ];
 
@@ -106,18 +106,18 @@ export default function OpportunityFrameworkView() {
     ];
 
     return (
-        <div className="flex-1 flex flex-col h-full overflow-y-auto bg-zinc-950 p-6 space-y-8 scrollbar-custom-dark">
+        <div className="flex-1 flex flex-col h-full overflow-y-auto bg-slate-50 p-6 space-y-6 scrollbar-custom-light font-sans">
             {/* Header */}
-            <div className="border-b border-zinc-800 pb-5">
-                <div className="flex items-center gap-2.5">
-                    <div className="p-2.5 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30">
-                        <Layers className="h-6 w-6 text-cyan-400" />
+            <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                    <div className="p-2.5 rounded-xl bg-indigo-50 border border-indigo-200">
+                        <Layers className="h-6 w-6 text-indigo-600" />
                     </div>
                     <div>
-                        <h1 className="text-xl font-bold text-zinc-100 tracking-tight">
+                        <h1 className="text-xl font-bold text-slate-900 tracking-tight">
                             Loan Disbursal Opportunity Analysis – Overall Framework
                         </h1>
-                        <p className="text-xs text-zinc-400 mt-0.5">
+                        <p className="text-xs text-slate-500 mt-0.5">
                             AI & Human Intelligence pipeline unifying 4 Data Sources to maximize Loan Disbursal Conversions
                         </p>
                     </div>
@@ -125,14 +125,14 @@ export default function OpportunityFrameworkView() {
             </div>
 
             {/* Objective Banner */}
-            <div className="p-5 rounded-2xl bg-gradient-to-r from-cyan-950/60 via-zinc-900/90 to-purple-950/60 border border-cyan-500/30 shadow-xl relative overflow-hidden backdrop-blur-md">
+            <div className="p-5 rounded-xl bg-gradient-to-r from-indigo-50/70 via-white to-blue-50/70 border border-indigo-100 shadow-xs">
                 <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-xl bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 flex-shrink-0">
-                        <Sparkles className="h-6 w-6 text-cyan-400" />
+                    <div className="p-2.5 rounded-xl bg-indigo-100 text-indigo-700 flex-shrink-0">
+                        <Sparkles className="h-5 w-5 text-indigo-600" />
                     </div>
                     <div>
-                        <h2 className="text-sm font-bold text-cyan-200 uppercase tracking-wider">Overall Objective</h2>
-                        <p className="text-xs text-zinc-300 leading-relaxed mt-1">
+                        <h2 className="text-xs font-bold text-indigo-900 uppercase tracking-wider">Overall Objective</h2>
+                        <p className="text-xs text-slate-600 leading-relaxed mt-1">
                             The objective is to combine data from all four sources, apply AI and Human Intelligence to identify the strongest loan opportunities, and convert these opportunities into actual loan disbursals. The identified customers can be approached through AI Calls, WhatsApp, Managers, or BROs. Where the analysis identifies a specific customer requirement or preferred offer, a relevant personalized offer can be generated and provided to the Manager/BRO for follow-up and conversion.
                         </p>
                     </div>
@@ -140,10 +140,10 @@ export default function OpportunityFrameworkView() {
             </div>
 
             {/* Section 1: Source-wise Analysis Framework */}
-            <div className="space-y-4">
+            <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                    <Database className="h-5 w-5 text-cyan-400" />
-                    <h2 className="text-base font-bold text-zinc-100">1. Source-wise Analysis Framework</h2>
+                    <Database className="h-4 w-4 text-indigo-600" />
+                    <h2 className="text-sm font-bold text-slate-800 uppercase tracking-wider">1. Source-wise Analysis Framework</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -152,14 +152,14 @@ export default function OpportunityFrameworkView() {
                         return (
                             <div 
                                 key={src.id}
-                                className="p-5 rounded-xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-sm space-y-3 hover:border-zinc-700 transition-all"
+                                className="p-5 rounded-xl bg-white border border-slate-200 shadow-xs space-y-3 hover:border-slate-300 transition-all"
                             >
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-2.5">
-                                        <div className="p-2 rounded-lg bg-zinc-800 text-cyan-400">
+                                        <div className="p-2 rounded-lg bg-slate-100 text-indigo-600">
                                             <Icon className="h-4 w-4" />
                                         </div>
-                                        <h3 className="text-sm font-bold text-zinc-100">{src.id} – {src.title}</h3>
+                                        <h3 className="text-sm font-bold text-slate-900">{src.id} – {src.title}</h3>
                                     </div>
                                     <span className={`text-[10px] px-2.5 py-0.5 rounded-full font-semibold border ${src.badgeColor}`}>
                                         {src.badge}
@@ -168,14 +168,14 @@ export default function OpportunityFrameworkView() {
 
                                 <div className="space-y-2 pt-1">
                                     {src.activities.map((act, i) => (
-                                        <div key={i} className="p-3 rounded-lg bg-zinc-950/80 border border-zinc-800/60 text-xs space-y-1">
+                                        <div key={i} className="p-3 rounded-lg bg-slate-50 border border-slate-200/80 text-xs space-y-1">
                                             <div className="flex items-center justify-between">
-                                                <span className="font-semibold text-zinc-200">{act.name}</span>
-                                                <span className="text-[10px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-400 font-mono">
+                                                <span className="font-semibold text-slate-800">{act.name}</span>
+                                                <span className="text-[10px] px-2 py-0.5 rounded bg-white border border-slate-200 text-slate-600 font-mono">
                                                     {act.period}
                                                 </span>
                                             </div>
-                                            <p className="text-[11px] text-cyan-400 font-medium">
+                                            <p className="text-[11px] text-indigo-700 font-medium">
                                                 ⚡ Method: {act.method}
                                             </p>
                                         </div>
@@ -188,10 +188,10 @@ export default function OpportunityFrameworkView() {
             </div>
 
             {/* Section 2: Common Data Points to be Generated */}
-            <div className="space-y-4">
+            <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                    <Target className="h-5 w-5 text-purple-400" />
-                    <h2 className="text-base font-bold text-zinc-100">2. Common Data Points to be Generated</h2>
+                    <Target className="h-4 w-4 text-purple-600" />
+                    <h2 className="text-sm font-bold text-slate-800 uppercase tracking-wider">2. Common Data Points to be Generated</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -200,15 +200,15 @@ export default function OpportunityFrameworkView() {
                         return (
                             <div 
                                 key={i}
-                                className={`p-4 rounded-xl bg-gradient-to-br ${dp.color} bg-zinc-900/70 border backdrop-blur-sm space-y-2 transition-all hover:scale-[1.01]`}
+                                className={`p-4 rounded-xl bg-white border ${dp.color.includes('border') ? dp.color.split(' ').find(c => c.startsWith('border')) : 'border-slate-200'} shadow-xs space-y-2 hover:border-indigo-300 transition-all`}
                             >
                                 <div className="flex items-center gap-2.5">
-                                    <div className="p-1.5 rounded-lg bg-zinc-950/80">
-                                        <Icon className="h-4 w-4" />
+                                    <div className="p-1.5 rounded-lg bg-slate-100">
+                                        <Icon className="h-4 w-4 text-indigo-600" />
                                     </div>
-                                    <h3 className="text-xs font-bold uppercase tracking-wider">{dp.parameter}</h3>
+                                    <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider">{dp.parameter}</h3>
                                 </div>
-                                <p className="text-xs text-zinc-300 leading-normal pl-1">
+                                <p className="text-xs text-slate-600 leading-normal pl-1">
                                     {dp.description}
                                 </p>
                             </div>
@@ -218,31 +218,31 @@ export default function OpportunityFrameworkView() {
             </div>
 
             {/* Section 3: Final AI + Human Intelligence Layer */}
-            <div className="space-y-4">
+            <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                    <Zap className="h-5 w-5 text-emerald-400" />
-                    <h2 className="text-base font-bold text-zinc-100">3. Final AI + Human Intelligence Layer (9 Stages)</h2>
+                    <Zap className="h-4 w-4 text-emerald-600" />
+                    <h2 className="text-sm font-bold text-slate-800 uppercase tracking-wider">3. Final AI + Human Intelligence Layer (9 Stages)</h2>
                 </div>
 
-                <div className="overflow-x-auto rounded-xl border border-zinc-800 bg-zinc-900/60 backdrop-blur-sm">
+                <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-xs">
                     <table className="w-full text-left text-xs border-collapse">
                         <thead>
-                            <tr className="border-b border-zinc-800 bg-zinc-900/90 text-zinc-400 font-semibold uppercase tracking-wider text-[10px]">
+                            <tr className="border-b border-slate-200 bg-slate-50 text-slate-500 font-semibold uppercase tracking-wider text-[10px]">
                                 <th className="py-3 px-4 w-12 text-center">#</th>
                                 <th className="py-3 px-4">Stage</th>
                                 <th className="py-3 px-4">Activity</th>
                                 <th className="py-3 px-4">Output / Impact</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-zinc-800/60 text-zinc-300">
+                        <tbody className="divide-y divide-slate-100 text-slate-700">
                             {pipelineStages.map((ps, idx) => (
-                                <tr key={idx} className="hover:bg-zinc-800/40 transition-colors">
-                                    <td className="py-3 px-4 text-center font-bold font-mono text-cyan-400">{idx + 1}</td>
-                                    <td className="py-3 px-4 font-bold text-zinc-100">{ps.stage}</td>
-                                    <td className="py-3 px-4 text-zinc-300">{ps.activity}</td>
+                                <tr key={idx} className="hover:bg-slate-50/80 transition-colors">
+                                    <td className="py-3 px-4 text-center font-bold font-mono text-indigo-600">{idx + 1}</td>
+                                    <td className="py-3 px-4 font-bold text-slate-900">{ps.stage}</td>
+                                    <td className="py-3 px-4 text-slate-600">{ps.activity}</td>
                                     <td className="py-3 px-4">
-                                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 text-[11px] font-semibold">
-                                            <CheckCircle2 className="h-3 w-3 text-emerald-400" />
+                                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[11px] font-semibold">
+                                            <CheckCircle2 className="h-3 w-3 text-emerald-600" />
                                             {ps.output}
                                         </span>
                                     </td>
